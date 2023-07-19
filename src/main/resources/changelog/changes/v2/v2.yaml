@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2
+      author: daniel
+      comment: populate data
+      changes:
+        - tagDatabase:
+            tag: v2
+        - sqlFile:
+            dbms: mysql
+            path: v2_insert.sql
+            relativeToChangelogFile: true
