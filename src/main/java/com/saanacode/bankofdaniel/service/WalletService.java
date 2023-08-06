@@ -1,6 +1,8 @@
 package com.saanacode.bankofdaniel.service;
 
 
+import com.saanacode.bankofdaniel.dto.request.CreateWalletRequest;
+import com.saanacode.bankofdaniel.entity.Account;
 import com.saanacode.bankofdaniel.repository.WalletRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
