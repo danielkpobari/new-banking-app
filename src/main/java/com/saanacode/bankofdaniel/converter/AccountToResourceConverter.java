@@ -1,8 +1,9 @@
 package com.saanacode.bankofdaniel.converter;
 
-import com.yassir.bankservice.dto.response.AccountResource;
-import com.yassir.bankservice.entity.Account;
-import com.yassir.bankservice.entity.Wallet;
+import com.saanacode.bankofdaniel.dto.response.AccountResource;
+import com.saanacode.bankofdaniel.entity.Account;
+import com.saanacode.bankofdaniel.entity.Wallet;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import static java.util.stream.Collectors.toList;
 
 @Component
 @RequiredArgsConstructor
+
 public class AccountToResourceConverter {
 
     private final WalletToResourceConverter walletToResourceConverter;
@@ -23,8 +25,8 @@ public class AccountToResourceConverter {
                 .firstname(account.getFirstName())
                 .lastname(account.getLastName())
                 .email(account.getEmail())
-                .bankAccounts(wallets.parallelStream().map(walletToResourceConverter::convert).collect(toList()))
-                .build();
+                .bankAccounts(wallets.parallelStream().map(walletToResourceConverter::convert).collect(toList())
+                ).build();
 
 
     }

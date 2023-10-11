@@ -1,7 +1,8 @@
 package com.saanacode.bankofdaniel.converter;
 
-import com.yassir.bankservice.dto.response.TransactionDetailResource;
-import com.yassir.bankservice.entity.TransactionDetails;
+
+import com.saanacode.bankofdaniel.dto.response.TransactionDetailResource;
+import com.saanacode.bankofdaniel.entity.TransactionDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

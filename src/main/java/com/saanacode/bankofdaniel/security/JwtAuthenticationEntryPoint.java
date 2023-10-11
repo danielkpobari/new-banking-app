@@ -1,8 +1,8 @@
 package com.saanacode.bankofdaniel.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yassir.bankservice.dto.ApiError;
-import com.yassir.bankservice.dto.ErrorCode;
+import com.saanacode.bankofdaniel.dto.ApiError;
+import com.saanacode.bankofdaniel.dto.ErrorCode;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
@@ -15,8 +15,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static com.yassir.bankservice.dto.ErrorCode.*;
-import static com.yassir.bankservice.entity.GeneralConstants.HEADER_STRING;
+import static com.saanacode.bankofdaniel.dto.ErrorCode.INVALID_TOKEN;
+import static com.saanacode.bankofdaniel.dto.ErrorCode.MISSING_TOKEN;
+import static com.saanacode.bankofdaniel.entity.GeneralConstants.HEADER_STRING;
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

@@ -4,7 +4,9 @@ import com.saanacode.bankofdaniel.converter.AccountToResourceConverter;
 import com.saanacode.bankofdaniel.dto.request.CreateAccountRequest;
 import com.saanacode.bankofdaniel.dto.request.CreateWalletRequest;
 import com.saanacode.bankofdaniel.dto.response.AccountResource;
+import com.saanacode.bankofdaniel.dto.response.WalletResource;
 import com.saanacode.bankofdaniel.entity.Account;
+
 import com.saanacode.bankofdaniel.entity.Wallet;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class AccountResourceService {
     private final WalletService walletService;
     private final AccountService accountService;
     private final AccountToResourceConverter accountToResourceConverter;
+
 
     @Transactional
     public AccountResource createCustomerAccount(@Valid CreateAccountRequest request) {

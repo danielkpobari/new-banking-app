@@ -1,9 +1,11 @@
 package com.saanacode.bankofdaniel.converter;
 
-import com.yassir.bankservice.dto.response.AdminResource;
-import com.yassir.bankservice.dto.response.TransactionResource;
-import com.yassir.bankservice.entity.Admin;
-import com.yassir.bankservice.entity.Transaction;
+
+import com.saanacode.bankofdaniel.dto.response.AdminResource;
+import com.saanacode.bankofdaniel.dto.response.TransactionResource;
+import com.saanacode.bankofdaniel.entity.Admin;
+import com.saanacode.bankofdaniel.entity.Transaction;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -46,7 +48,7 @@ public class TransactionToResourceConverter {
 
      static class AdminToResourceConverter {
 
-        public static AdminResource convert(Admin admin) {
+        public static @NotNull(message = "authorized_by must not be blank") AdminResource convert(Admin admin) {
 
             return AdminResource.builder()
                     .id(admin.getId())

@@ -1,7 +1,7 @@
 package com.saanacode.bankofdaniel.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yassir.bankservice.dto.ApiError;
+import com.saanacode.bankofdaniel.dto.ApiError;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

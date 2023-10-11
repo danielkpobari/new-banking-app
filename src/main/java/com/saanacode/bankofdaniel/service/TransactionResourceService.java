@@ -1,13 +1,17 @@
 package com.saanacode.bankofdaniel.service;
 
+import com.saanacode.bankofdaniel.converter.TransactionDetailsToResourceConverter;
+import com.saanacode.bankofdaniel.converter.TransactionToResourceConverter;
 import com.saanacode.bankofdaniel.dto.request.TransferRequest;
-
+import com.saanacode.bankofdaniel.dto.response.PaginatedTransactionDetailResource;
+import com.saanacode.bankofdaniel.dto.response.TransactionDetailResource;
+import com.saanacode.bankofdaniel.dto.response.TransactionResource;
+import com.saanacode.bankofdaniel.entity.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service

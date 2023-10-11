@@ -1,12 +1,12 @@
 package com.saanacode.bankofdaniel.exception;
 
-import com.yassir.bankservice.dto.ErrorCode;
+import com.saanacode.bankofdaniel.dto.ErrorCode;
 
 import java.io.Serial;
 
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
-public class UnAuthorizedException extends YassirException {
+public class UnAuthorizedException extends DaniBankException {
 
     @Serial
     private static final long serialVersionUID = 2894128923758388671L;

@@ -2,6 +2,14 @@ package com.saanacode.bankofdaniel.service;
 
 import com.saanacode.bankofdaniel.dto.request.AdminRegistrationRequest;
 import com.saanacode.bankofdaniel.dto.request.AuthenticationRequest;
+import com.saanacode.bankofdaniel.dto.response.AuthenticationResponse;
+import com.saanacode.bankofdaniel.entity.Admin;
+import com.saanacode.bankofdaniel.entity.Token;
+import com.saanacode.bankofdaniel.exception.DaniBankException;
+import com.saanacode.bankofdaniel.exception.UnAuthorizedException;
+import com.saanacode.bankofdaniel.repository.AdminRepository;
+import com.saanacode.bankofdaniel.repository.TokenRepository;
+import com.saanacode.bankofdaniel.security.JwtService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +23,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.saanacode.bankofdaniel.dto.ErrorCode.INVALID_CREDENTIALS;
+import static com.saanacode.bankofdaniel.entity.Role.ADMIN;
 import static java.lang.String.format;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -39,7 +49,7 @@ public class AuthenticationService {
         } catch (Exception e) {
             logger.error(format("An error occurred while creating admin account, please contact support. " +
                     "Possible reasons: %s", e.getLocalizedMessage()));
-            throw new YassirException("An error occurred while creating admin account, please contact support",
+            throw new DaniBankException("An error occurred while creating admin account, please contact support",
                     INTERNAL_SERVER_ERROR);
         }
     }

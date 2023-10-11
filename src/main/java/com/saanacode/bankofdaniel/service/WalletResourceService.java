@@ -1,6 +1,9 @@
 package com.saanacode.bankofdaniel.service;
 
 
+import com.saanacode.bankofdaniel.converter.WalletToResourceConverter;
+import com.saanacode.bankofdaniel.dto.response.WalletResource;
+import com.saanacode.bankofdaniel.entity.Wallet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

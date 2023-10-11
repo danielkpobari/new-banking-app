@@ -1,5 +1,12 @@
 package com.saanacode.bankofdaniel.service;
 
+import com.saanacode.bankofdaniel.dto.request.TransferRequest;
+import com.saanacode.bankofdaniel.entity.*;
+import com.saanacode.bankofdaniel.exception.BankServiceException;
+import com.saanacode.bankofdaniel.exception.DaniBankException;
+import com.saanacode.bankofdaniel.repository.TransactionDetailsRepository;
+import com.saanacode.bankofdaniel.repository.TransactionRepository;
+import com.saanacode.bankofdaniel.repository.WalletRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -10,9 +17,10 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.math.BigDecimal;
 
-import static com.yassir.bankservice.dto.ErrorCode.*;
-import static com.yassir.bankservice.entity.OperationType.CREDIT;
-import static com.yassir.bankservice.entity.OperationType.DEBIT;
+import static com.saanacode.bankofdaniel.dto.ErrorCode.*;
+import static com.saanacode.bankofdaniel.entity.OperationType.CREDIT;
+import static com.saanacode.bankofdaniel.entity.OperationType.DEBIT;
+import static java.lang.String.format;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -84,7 +92,7 @@ public class TransactionService {
                             "amount: %f. Possible reason(s) : %s",
                     wallet.getWalletNumber(), amount, ExceptionUtils.getRootCauseMessage(e));
             logger.error(msg);
-            throw new YassirException(
+            throw new DaniBankException(
                     "Failed updating account balances", INTERNAL_SERVER_ERROR, ACCOUNT_BALANCE_UPDATE_FAILED);
         }
     }
@@ -112,7 +120,7 @@ public class TransactionService {
                     request.getAmount().floatValue(),
                     ExceptionUtils.getRootCauseMessage(e));
             logger.error(msg);
-            throw new YassirException(
+            throw new DaniBankException(
                     "Failed updating account balances", INTERNAL_SERVER_ERROR, ACCOUNT_BALANCE_UPDATE_FAILED);
         }
     }
@@ -135,7 +143,7 @@ public class TransactionService {
                     request.getAmount().floatValue(),
                     ExceptionUtils.getRootCauseMessage(e));
             logger.error(msg);
-            throw new YassirException(
+            throw new DaniBankException(
                     "Failed updating account balances", INTERNAL_SERVER_ERROR, ACCOUNT_BALANCE_UPDATE_FAILED);
         }
     }

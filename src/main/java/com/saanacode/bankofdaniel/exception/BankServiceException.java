@@ -1,9 +1,9 @@
 package com.saanacode.bankofdaniel.exception;
 
-import com.yassir.bankservice.dto.ErrorCode;
+import com.saanacode.bankofdaniel.dto.ErrorCode;
 import org.springframework.http.HttpStatus;
 
-public class BankServiceException extends YassirException {
+public class BankServiceException extends DaniBankException {
 
     public BankServiceException(String msg) {
         super(msg);

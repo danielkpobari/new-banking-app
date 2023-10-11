@@ -1,6 +1,7 @@
 package com.saanacode.bankofdaniel.security;
 
-import com.yassir.bankservice.repository.AdminRepository;
+
+import com.saanacode.bankofdaniel.repository.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

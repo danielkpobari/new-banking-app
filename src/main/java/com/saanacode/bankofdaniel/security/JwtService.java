@@ -1,6 +1,7 @@
 package com.saanacode.bankofdaniel.security;
 
-import com.yassir.bankservice.entity.Admin;
+
+import com.saanacode.bankofdaniel.entity.Admin;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -18,7 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.yassir.bankservice.entity.GeneralConstants.*;
+import static com.saanacode.bankofdaniel.entity.GeneralConstants.*;
+
 
 @Service
 public class JwtService {

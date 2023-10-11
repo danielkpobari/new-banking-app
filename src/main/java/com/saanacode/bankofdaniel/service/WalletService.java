@@ -3,6 +3,9 @@ package com.saanacode.bankofdaniel.service;
 
 import com.saanacode.bankofdaniel.dto.request.CreateWalletRequest;
 import com.saanacode.bankofdaniel.entity.Account;
+import com.saanacode.bankofdaniel.entity.Wallet;
+import com.saanacode.bankofdaniel.exception.AccountServiceException;
+import com.saanacode.bankofdaniel.exception.BankServiceException;
 import com.saanacode.bankofdaniel.repository.WalletRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +18,8 @@ import java.util.Optional;
 import java.util.Random;
 
 
+import static com.saanacode.bankofdaniel.dto.ErrorCode.WALLET_DOES_NOT_EXIST;
+import static com.saanacode.bankofdaniel.entity.GeneralConstants.MAX_ACCOUNT_NUMBER;
 import static java.lang.String.format;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;

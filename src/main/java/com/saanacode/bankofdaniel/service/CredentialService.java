@@ -1,7 +1,7 @@
 package com.saanacode.bankofdaniel.service;
 
-import com.yassir.bankservice.entity.Admin;
-import com.yassir.bankservice.exception.YassirException;
+import com.saanacode.bankofdaniel.entity.Admin;
+import com.saanacode.bankofdaniel.exception.DaniBankException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +18,7 @@ public class CredentialService {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             return  (Admin) authentication.getPrincipal();
         } catch (Exception e) {
-            throw new YassirException("Could not authenticate request", INTERNAL_SERVER_ERROR);
+            throw new DaniBankException("Could not authenticate request", INTERNAL_SERVER_ERROR);
         }
     }
 }

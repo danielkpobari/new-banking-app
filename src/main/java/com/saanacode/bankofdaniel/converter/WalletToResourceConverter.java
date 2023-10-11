@@ -1,7 +1,8 @@
 package com.saanacode.bankofdaniel.converter;
 
-import com.yassir.bankservice.dto.response.WalletResource;
-import com.yassir.bankservice.entity.Wallet;
+
+import com.saanacode.bankofdaniel.dto.response.WalletResource;
+import com.saanacode.bankofdaniel.entity.Wallet;
 import org.springframework.stereotype.Component;
 
 import static java.math.RoundingMode.HALF_UP;

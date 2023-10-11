@@ -1,7 +1,7 @@
 package com.saanacode.bankofdaniel.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.yassir.bankservice.entity.TransactionStatus;
+import com.saanacode.bankofdaniel.entity.TransactionStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

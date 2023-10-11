@@ -1,10 +1,11 @@
 package com.saanacode.bankofdaniel.exception.handler;
 
-import com.yassir.bankservice.dto.ErrorCode;
-import com.yassir.bankservice.exception.AccountServiceException;
-import com.yassir.bankservice.exception.BankServiceException;
-import com.yassir.bankservice.exception.UnAuthorizedException;
-import com.yassir.bankservice.exception.YassirException;
+
+import com.saanacode.bankofdaniel.dto.ErrorCode;
+import com.saanacode.bankofdaniel.exception.AccountServiceException;
+import com.saanacode.bankofdaniel.exception.BankServiceException;
+import com.saanacode.bankofdaniel.exception.UnAuthorizedException;
+import com.saanacode.bankofdaniel.exception.DaniBankException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -30,10 +31,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static com.yassir.bankservice.dto.ErrorCode.CONSTRAINT_VIOLATION;
+import static com.saanacode.bankofdaniel.dto.ErrorCode.CONSTRAINT_VIOLATION;
+
+
 
 @ControllerAdvice
-public class YassirExceptionHandler extends ResponseEntityExceptionHandler {
+public class Dani_Bank_ExceptionHandler extends ResponseEntityExceptionHandler {
 
     /**
      * Handle MethodArgumentNotValidException. Triggered when an object fails @Valid validation.
@@ -54,6 +57,12 @@ public class YassirExceptionHandler extends ResponseEntityExceptionHandler {
                 CONSTRAINT_VIOLATION, "Invalid method argument", HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handle ConstraintViolationException. Triggered when an object fails @Valid validation.
+     *
+     * @param ex ConstraintViolationException
+     * @return the ApiError object
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex) {
         return buildResponseEntity(getValidationErrors(
@@ -100,8 +109,8 @@ public class YassirExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, getError(ex), headers, status, request);
     }
 
-    @ExceptionHandler({YassirException.class, AccountServiceException.class, BankServiceException.class, UnAuthorizedException.class})
-    public ResponseEntity<Object> handleCustomException(YassirException e) {
+    @ExceptionHandler({DaniBankException.class, AccountServiceException.class, BankServiceException.class, UnAuthorizedException.class})
+    public ResponseEntity<Object> handleCustomException(DaniBankException e) {
         return buildResponseEntity(e.getMessage(), e.getErrorCode(), ExceptionUtils.getMessage(e),e.getStatus());
     }
 

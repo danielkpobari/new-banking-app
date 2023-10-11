@@ -2,7 +2,7 @@ package com.saanacode.bankofdaniel.exception.handler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.yassir.bankservice.dto.ErrorCode;
+import com.saanacode.bankofdaniel.dto.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
